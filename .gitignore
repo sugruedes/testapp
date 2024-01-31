@@ -1,0 +1,4 @@
+venv
+__pycache__
+__test__
+*.sqlite3
