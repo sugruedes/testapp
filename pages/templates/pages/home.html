@@ -4,5 +4,17 @@
 
 {% block page_content %}
     <h1>Des Sugrue Portfolio Home</h1>
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5 class="card-title">Admin Section</h5>
+                <p class="card-text">Administer the site</p>
+                <a href="{% url 'admin:index' %}"
+                   class="btn btn-primary">
+                    Admin
+                </a>
+            </div>
+        </div>
+    </div>
 
 {% endblock page_content %}
