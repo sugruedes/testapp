@@ -4,17 +4,48 @@
 
 {% block page_content %}
     <h1>Des Sugrue Portfolio Home</h1>
-    <div class="col-md-4">
-        <div class="card mb-2">
-            <div class="card-body">
-                <h5 class="card-title">Admin Section</h5>
-                <p class="card-text">Administer the site</p>
-                <a href="{% url 'admin:index' %}"
-                   class="btn btn-primary">
-                    Admin
-                </a>
+    <div class="row">
+        <div class="col-md-4">
+            {% for post in posts %}
+		
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+		                <small>Published on {{ post.published_at }} by {{ post.author}}</small>
+		            <p class="mb-0">{{ post.content }}</p>    
+                </div>
+            </div>
+            {% endfor %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">Members Access</h5>
+                    <p class="card-text">Enter the site</p>
+                    <a href="{% url 'admin:index' %}"
+                    class="btn btn-primary">
+                        Login
+                    </a>
+                </div>
+            </div>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">CyberCheck</h5>
+                    <p class="card-text">Online analysis of your cyber security posture.</p>
+                    <a href="{% url 'admin:index' %}"
+                    class="btn btn-primary">
+                        CyberCheck
+                    </a>
+                </div>
+            </div>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">Projects</h5>
+                    <p class="card-text">A selection of past and present projects.</p>
+                    <a href="{% url 'project_index' %}"
+                    class="btn btn-primary">
+                        Projects
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-
 {% endblock page_content %}
