@@ -6,7 +6,8 @@ from pages import views
 #app_name = "pages"
 urlpatterns = [
     path("", views.home, name='home'),
-    path("about", views.about, name='about'),
+    path("about/", views.about, name='about'),
+    path("shopping/", views.shopping, name='shopping'),
     path("projects", include("projects.urls")),
     path('login/', views.sign_in, name='login'),
     path('logout/', views.sign_out, name='logout'), 

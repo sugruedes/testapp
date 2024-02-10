@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("pages.urls")),
     path("about/", include("pages.urls")),
+    path("shopping/", include("pages.urls")),
     path("projects/", include("projects.urls")),
+    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

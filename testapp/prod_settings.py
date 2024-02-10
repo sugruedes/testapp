@@ -13,18 +13,9 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / 'local.envars')
-
-#temporary!
-CORS_ALLOWED_ORIGINS = [
-    "https://sugrue.org",
-    "https://64.43.31.93:21962",
-    "http://127.0.0.1:8000",
-]
-
 
 #keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -45,19 +36,18 @@ if SECURE_SSL_REDIRECT:
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'projects.apps.ProjectsConfig',
-    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'oauth2_provider',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -142,33 +132,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Media file uploads go where?
 MEDIA_ROOT = BASE_DIR / "uploads/"
 MEDIA_URL = "media/"
-
-#additional cors stuff:
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:your_frontend_port",  # Add your frontend domain
-    # Add other allowed origins as needed
-]
-
-CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-]
-
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
-
-CORS_ALLOW_CREDENTIALS = True
-
+  

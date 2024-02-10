@@ -4,7 +4,6 @@ from django.contrib.auth import login, authenticate, logout
 from .forms import LoginForm, RegisterForm
 from .models import Post
 
-
 # Create your views here.
 def home(request):
     posts = Post.objects.all()
@@ -13,6 +12,9 @@ def home(request):
 
 def about(request):
     return render(request, 'pages/about.html', {})
+
+def shopping(request):
+    return render(request, 'pages/shopping.html', {})
 
 def sign_in(request):
     if request.method == 'GET':
